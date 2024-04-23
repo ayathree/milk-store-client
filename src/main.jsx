@@ -13,6 +13,8 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    // read
+    loader:()=>fetch('http://localhost:5000/milk')
   },
   {
     path:'/update',
