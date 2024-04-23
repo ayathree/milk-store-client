@@ -52,7 +52,8 @@ const MilkCard = ({milk, milks, setMilks}) => {
      <div className="flex flex-row gap-6">
         {/* delete */}
      <button onClick={()=>handleDelete(_id)} className="btn ">delete</button>
-      <Link to={'/update'}><button className="btn">update</button></Link>
+     {/* update */}
+      <Link to={`/update/${_id}`}><button className="btn">update</button></Link>
      </div>
     </div>
   </div>
