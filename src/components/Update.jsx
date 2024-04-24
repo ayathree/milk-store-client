@@ -15,7 +15,7 @@ const Update = () => {
         console.log(updatedMilk)
 
         // send data to backend
-        fetch(`http://localhost:5000/milk/${_id}`,{
+        fetch(`https://ofline-database-server.vercel.app/milk/${_id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

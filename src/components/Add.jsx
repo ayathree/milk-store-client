@@ -13,7 +13,7 @@ const Add = () => {
         const newMilk = {name, description, taste,photo};
         console.log(newMilk)
 
-        fetch('http://localhost:5000/milk',{
+        fetch('https://ofline-database-server.vercel.app/milk',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

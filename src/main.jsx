@@ -8,28 +8,51 @@ import {
 import './index.css'
 import Update from './components/Update.jsx';
 import Add from './components/Add.jsx';
+import AuthProvider from './provider/AuthProvider.jsx';
+import Register from './components/Register.jsx';
+import User from './components/User.jsx';
+import UpdateUser from './components/UpdateUser.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
     // read
-    loader:()=>fetch('http://localhost:5000/milk')
+    loader:()=>fetch('https://ofline-database-server.vercel.app/milk')
   },
   {
     path:'/update/:id',
     element:<Update></Update>,
     // update
-    loader:({params})=>fetch(`http://localhost:5000/milk/${params.id}`)
+    loader:({params})=>fetch(`https://ofline-database-server.vercel.app/milk/${params.id}`)
   },
   {
     path:'/add',
     element:<Add></Add>
+  },
+  {
+    path:'/user',
+    element:<User></User>,
+    // read user
+    loader:()=>fetch('https://ofline-database-server.vercel.app/newUser')
+  },
+  // update user
+  {
+    path:'/updateUser/:id',
+    element:<UpdateUser></UpdateUser>,
+    loader:({params})=>fetch(`https://ofline-database-server.vercel.app/newUser/${params.id}`)
+
+  },
+  {
+    path:'/register',
+    element:<Register></Register>
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+   <AuthProvider>
+   <RouterProvider router={router} />
+   </AuthProvider>
   </React.StrictMode>,
 )

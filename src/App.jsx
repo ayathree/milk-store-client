@@ -16,6 +16,7 @@ function App() {
       <h1>Vite + React</h1>
       <p>Milk items:{milks.length}</p>
       <Link to={'/add'}><button className='btn'>Milk Add Page</button></Link>
+      <Link to={'/user'}><button className='btn'>User Page</button></Link>
       <br />
       
       {/* read */}
