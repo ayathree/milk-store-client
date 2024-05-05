@@ -12,6 +12,7 @@ import AuthProvider from './provider/AuthProvider.jsx';
 import Register from './components/Register.jsx';
 import User from './components/User.jsx';
 import UpdateUser from './components/UpdateUser.jsx';
+import Login from './components/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
     path:'/updateUser/:id',
     element:<UpdateUser></UpdateUser>,
     loader:({params})=>fetch(`https://ofline-database-server.vercel.app/newUser/${params.id}`)
+
+  },
+  {
+    path:'/login',
+    element:<Login></Login>
 
   },
   {

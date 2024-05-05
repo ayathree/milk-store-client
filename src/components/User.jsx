@@ -1,12 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../axios/useAxiosSecure";
 
 // read user
 const User = () => {
     const loadedUser = useLoaderData();
-    
     const[users, setUsers]= useState(loadedUser);
+    const axiosSecure = useAxiosSecure();
+    //  const url = 'https://ofline-database-server.vercel.app/newUser'
+    const url ='/newUser'
+     useEffect(()=>{
+      // task 10
+      // fetch(url, {credentials: 'include'})
+      // .then(res=>res.json())
+      // .then(data=>setUsers(data))
+      axiosSecure.get(url)
+      .then(res=> setUsers(res.data))
+     },[axiosSecure])
+    
+   
     // delete user
     const handleUserDelete=id=>{
         Swal.fire({
